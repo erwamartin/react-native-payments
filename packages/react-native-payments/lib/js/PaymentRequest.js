@@ -309,8 +309,8 @@ export default class PaymentRequest {
     
     return {
       paymentData: isSimulator ? null : JSON.parse(serializedPaymentData),
-      billingContact,
-      shippingContact,
+      billingContact: isSimulator ? null : JSON.parse(serializedBillingContact),
+      shippingContact: isSimulator ? null : JSON.parse(serializedShippingContact),
       paymentToken,
       transactionIdentifier,
       paymentMethod
