@@ -298,8 +298,8 @@ export default class PaymentRequest {
   _getPlatformDetailsIOS(details: PaymentDetailsIOSRaw): PaymentDetailsIOS {
     const {
       paymentData: serializedPaymentData,
-      billingContact: serializedBillingContact,
-      shippingContact: serializedShippingContact,
+      billingContact,
+      shippingContact,
       paymentToken,
       transactionIdentifier,
       paymentMethod
@@ -309,8 +309,8 @@ export default class PaymentRequest {
     
     return {
       paymentData: isSimulator ? null : JSON.parse(serializedPaymentData),
-      billingContact: isSimulator ? null : JSON.parse(serializedBillingContact),
-      shippingContact: isSimulator ? null : JSON.parse(serializedShippingContact),
+      billingContact,
+      shippingContact,
       paymentToken,
       transactionIdentifier,
       paymentMethod
