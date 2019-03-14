@@ -486,5 +486,12 @@ export default class PaymentRequest {
   }
 
   static canMakePaymentsUsingNetworks = NativePayments.canMakePaymentsUsingNetworks;
+
+  // Check if we can make the payment without having to create a request
+  static canMakePaymentsWithMethods(methodData: Array<PaymentMethodData> = []) {
+    return NativePayments.canMakePayments(
+      getPlatformMethodData(methodData, Platform.OS)
+    );
+  }
 }
 
